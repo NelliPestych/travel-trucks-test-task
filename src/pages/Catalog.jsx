@@ -13,22 +13,23 @@ const Catalog = () => {
         dispatch(fetchCampers({}));
     }, [dispatch]);
 
-    // if (status === 'loading') return <p>Loading...</p>;
-    // if (status === 'failed') return <p>Error: {error}</p>;
-
     return (
         <main>
-            <Filters />
-
-            {Array.isArray(items) && items.length > 0 ? (
-                <ul>
-                    {items.map((camper) => (
-                        <CamperCard key={camper.id} camper={camper} />
-                    ))}
-                </ul>
-            ) : (
-                <p>No campers found.</p>
-            )}
+            <section className={'catalog'}>
+                <div className={'catalog-items'}>
+                    {Array.isArray(items) && items.length > 0 ? (
+                        <ul>
+                            {items.map((camper) => (
+                                <CamperCard key={camper.id} camper={camper} />
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>No campers found.</p>
+                    )}
+                </div>
+                <Filters />
+                <LoadMoreButton />
+            </section>
         </main>
     );
 };
