@@ -1,63 +1,67 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BASE_URL = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers';
+const BASE_URL = 'https://66b1f8ee0cbc4c4c6fbd.mockapi.io';
 
 export const fetchCampers = createAsyncThunk(
     'campers/fetchCampers',
-    async (params, thunkAPI) => {
-        try {
-            const response = await axios.get(BASE_URL, { params });
+    async ({ page = 1, limit = 4, location = '', options = {}, form = '' }, thunkAPI) => {
+      try {
+        // Фільтрація валідних параметрів
+        const filters = [];
 
-            console.log('API FULL Response:', response.data);
+        if (location) filters.push(`location=${encodeURIComponent(location)}`);
 
-            // Повертаємо тільки масив campers
-            return response.data.data || response.data.items || [];
-        } catch (err) {
-            return thunkAPI.rejectWithValue(err.message);
-        }
+        if (form) filters.push(`form=${encodeURIComponent(form)}`);
+
+        // Перетворити options: {AC: true, kitchen: false, ...} у правильний query
+        Object.entries(options).forEach(([key, value]) => {
+          if (value) filters.push(`${key}=true`);
+        });
+
+        filters.push(`page=${page}`);
+        filters.push(`limit=${limit}`);
+
+        const queryString = filters.join('&');
+
+        const response = await axios.get(`${BASE_URL}/campers?${queryString}`);
+        console.log('API Response:', response.data);
+        return response.data;
+      } catch (error) {
+        console.error('API Error:', error.message);
+        return thunkAPI.rejectWithValue(error.message);
+      }
     }
 );
 
 const campersSlice = createSlice({
-    name: 'campers',
-    initialState: {
-        items: [],
-        isLoading: false,
-        error: null,
-        page: 1,
+  name: 'campers',
+  initialState: {
+    items: [],
+    status: 'idle',
+    error: null,
+  },
+  reducers: {
+    clearCampers: (state) => {
+      state.items = [];
     },
-    reducers: {
-        resetCampers(state) {
-            state.items = [];
-            state.page = 1;
-        },
-        incrementPage(state) {
-            state.page += 1;
-        },
-    },
-    extraReducers: (builder) => {
-        builder
-            .addCase(fetchCampers.pending, (state) => {
-                state.isLoading = true;
-                state.error = null;
-            })
-            .addCase(fetchCampers.fulfilled, (state, action) => {
-                state.isLoading = false;
-
-                if (Array.isArray(action.payload)) {
-                    state.items.push(...action.payload);
-                } else {
-                    console.error('❌ Expected array in payload, got:', action.payload);
-                }
-            })
-            .addCase(fetchCampers.rejected, (state, action) => {
-                state.isLoading = false;
-                state.error = action.payload || 'Unknown error';
-            });
-    },
+  },
+  extraReducers: (builder) => {
+    builder
+        .addCase(fetchCampers.pending, (state) => {
+          state.status = 'loading';
+          state.error = null;
+        })
+        .addCase(fetchCampers.fulfilled, (state, action) => {
+          state.status = 'succeeded';
+          state.items = action.payload;
+        })
+        .addCase(fetchCampers.rejected, (state, action) => {
+          state.status = 'failed';
+          state.error = action.payload;
+        });
+  },
 });
 
-export const { resetCampers, incrementPage } = campersSlice.actions;
-
+export const { clearCampers } = campersSlice.actions;
 export default campersSlice.reducer;
