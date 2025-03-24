@@ -1,0 +1,152 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.titleRow {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #101828;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 600;
+    color: #101828;
+}
+
+.gallery {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+}
+
+.gallery img {
+    width: 290px;
+    height: 310px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.description {
+    font-size: 16px;
+    color: #475467;
+    line-height: 1.5;
+}
+
+.tabs {
+    display: flex;
+    gap: 32px;
+    border-bottom: 1px solid #dadde1;
+}
+
+.tab {
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 8px;
+    cursor: pointer;
+    color: #101828;
+}
+
+.tab.active {
+    color: #e44848;
+    border-bottom: 2px solid #e44848;
+}
+
+.detailsWrapper {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.featuresBox, .formBox {
+    flex: 1 1 420px;
+    padding: 24px;
+    border: 1px solid #dadde1;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+.featuresList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.feature {
+    background-color: #f2f4f7;
+    color: #101828;
+    padding: 8px 12px;
+    border-radius: 100px;
+    font-size: 14px;
+}
+
+.vehicleInfo {
+    margin-top: 24px;
+}
+
+.vehicleInfoRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #475467;
+}
+
+.reviewsList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.reviewItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.reviewerName {
+    font-weight: 600;
+    color: #101828;
+}
+
+.formBox form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input, textarea {
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #dadde1;
+    background-color: #f7f7f7;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    background-color: #e44848;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 200px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #db4343;
+}

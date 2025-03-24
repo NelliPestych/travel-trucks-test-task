@@ -1,0 +1,88 @@
+.filters {
+    width: 250px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    border: 1px solid #dadde1;
+    box-shadow: 0px 4px 16px rgba(17, 18, 19, 0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #101828;
+}
+
+.input {
+    padding: 14px 16px;
+    border: 1px solid #dadde1;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #f7f7f7;
+    color: #101828;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    /*padding: 10px 14px;*/
+    font-size: 14px;
+    width: 112px;
+    height: 96px;
+    border-radius: 12px;
+    border: 1px solid #dadde1;
+    background-color: #f2f4f7;
+    color: #101828;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.vehicleTypes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.vehicleType {
+    padding: 10px;
+    border: 1px solid #dadde1;
+    border-radius: 12px;
+    background-color: #f2f4f7;
+    text-align: center;
+    font-size: 14px;
+    color: #101828;
+    cursor: pointer;
+}
+
+.tag.selected, .vehicleType.selected {
+    border: 1px solid #e44848;
+    border-radius: 12px;
+}
+
+.searchButton {
+    background-color: #e44848;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 200px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.searchButton:hover {
+    background-color: #db4343;
+}
