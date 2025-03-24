@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCampers } from '../features/campers/campersSlice';
 import CamperCard from '../components/CamperCard';
+import Filters from "../components/Filters.jsx";
+import LoadMoreButton from '../components/LoadMoreButton';
 
 const Catalog = () => {
     const dispatch = useDispatch();
@@ -11,12 +13,12 @@ const Catalog = () => {
         dispatch(fetchCampers({}));
     }, [dispatch]);
 
-    if (status === 'loading') return <p>Loading...</p>;
-    if (status === 'failed') return <p>Error: {error}</p>;
+    // if (status === 'loading') return <p>Loading...</p>;
+    // if (status === 'failed') return <p>Error: {error}</p>;
 
     return (
         <main>
-            <h1>Camper Catalog</h1>
+            <Filters />
 
             {Array.isArray(items) && items.length > 0 ? (
                 <ul>
