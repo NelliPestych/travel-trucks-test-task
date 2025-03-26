@@ -91,7 +91,7 @@ export default function CamperDetails() {
 
             <div className={styles.gallery}>
                 {gallery?.map((img, i) => (
-                    <img key={i} src={img} alt={`Gallery ${i}`} />
+                    <img key={i} src={img.original} alt={`Gallery ${i}`} />
                 ))}
             </div>
 
