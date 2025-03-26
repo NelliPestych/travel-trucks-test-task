@@ -17,6 +17,9 @@ import {
     iconWater,
     iconTransmission,
     iconPetrol,
+    iconVan,
+    iconFull,
+    iconAlcove
 } from '../assets/images/icons';
 
 const optionLabels = {
@@ -44,9 +47,18 @@ const optionLabels = {
 
 const vehicleTypes = ['panelTruck', 'fullyIntegrated', 'alcove'];
 const vehicleTypeLabels = {
-    panelTruck: 'Van',
-    fullyIntegrated: 'Fully Integrated',
-    alcove: 'Alcove',
+    panelTruck: {
+        label: 'Van',
+        icon: iconVan
+    },
+    fullyIntegrated: {
+        label: 'Fully Integrated',
+        icon: iconFull
+    },
+    alcove: {
+        label: 'Alcove',
+        icon: iconAlcove
+    }
 };
 
 export default function Filters() {
@@ -93,7 +105,8 @@ export default function Filters() {
                             }`}
                             onClick={() => dispatch(setVehicleType(type))}
                         >
-                            {vehicleTypeLabels[type]}
+                            <img src={vehicleTypeLabels[type].icon} alt={vehicleTypeLabels[type].label} width="32px"/>
+                            {vehicleTypeLabels[type].label}
                         </div>
                     ))}
                 </div>

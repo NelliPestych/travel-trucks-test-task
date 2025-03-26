@@ -9,6 +9,9 @@ import iconGas from './icon-gas.svg';
 import iconWater from './icon-water.svg';
 import iconTransmission from './icon-transmission.svg';
 import iconPetrol from './icon-petrol.svg';
+import iconVan from './icon-van.svg';
+import iconFull from './icon-full.svg';
+import iconAlcove from './icon-alcove.svg';
 
 export {
     iconAC,
@@ -22,4 +25,7 @@ export {
     iconWater,
     iconTransmission,
     iconPetrol,
+    iconVan,
+    iconFull,
+    iconAlcove
 };

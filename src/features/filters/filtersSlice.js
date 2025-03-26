@@ -4,8 +4,10 @@ const initialState = {
     location: '',
     vehicleType: '',
     options: {
-        AC: false,
+        ac: false,
+        automatic: false,
         kitchen: false,
+        tv: false,
         bathroom: false,
     },
 };
