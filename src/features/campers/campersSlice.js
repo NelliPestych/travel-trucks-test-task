@@ -30,6 +30,7 @@ export const fetchCamperById = createAsyncThunk(
 const campersSlice = createSlice({
     name: 'campers',
     initialState: {
+        allItems: [],
         items: [],
         status: 'idle',
         error: null,
@@ -37,7 +38,41 @@ const campersSlice = createSlice({
         selectedCamperStatus: 'idle',
         selectedCamperError: null,
     },
-    reducers: {},
+    reducers: {
+        filterCampers(state, action) {
+            const { location, form, ...options } = action.payload;
+
+            state.items = state.allItems.filter((camper) => {
+                const matchesLocation = location
+                    ? camper.location?.toLowerCase().includes(location.toLowerCase())
+                    : true;
+
+                const matchesForm = form ? camper.form === form : true;
+
+                const matchesOptions = Object.entries(options).every(([key, value]) => {
+                    if (!value) return true;
+
+                    switch (key.toLowerCase()) {
+                        case 'automatic':
+                            return camper.transmission?.toLowerCase() === 'automatic';
+                        case 'petrol':
+                            return camper.engine?.toLowerCase() === 'petrol';
+                        default:
+                            // Для булевих полів — знаходимо ключ без урахування регістру
+                            const camperKeys = Object.keys(camper).map(k => k.toLowerCase());
+                            const matchIndex = camperKeys.indexOf(key.toLowerCase());
+
+                            if (matchIndex === -1) return false;
+
+                            const actualKey = Object.keys(camper)[matchIndex];
+                            return camper[actualKey] === true;
+                    }
+                });
+
+                return matchesLocation && matchesForm && matchesOptions;
+            });
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchCampers.pending, (state) => {
@@ -46,6 +81,7 @@ const campersSlice = createSlice({
             })
             .addCase(fetchCampers.fulfilled, (state, action) => {
                 state.status = 'succeeded';
+                state.allItems = action.payload.items;
                 state.items = action.payload.items;
             })
             .addCase(fetchCampers.rejected, (state, action) => {
@@ -67,4 +103,5 @@ const campersSlice = createSlice({
     }
 });
 
+export const { filterCampers } = campersSlice.actions;
 export default campersSlice.reducer;

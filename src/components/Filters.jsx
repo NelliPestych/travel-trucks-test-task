@@ -21,6 +21,7 @@ import {
     iconFull,
     iconAlcove
 } from '../assets/images/icons';
+import {filterCampers} from '../features/campers/campersSlice';
 
 const optionLabels = {
     ac: {
@@ -64,6 +65,15 @@ const vehicleTypeLabels = {
 export default function Filters() {
     const dispatch = useDispatch();
     const { location, vehicleType, options } = useSelector((state) => state.filters);
+
+    const handleSearch = () => {
+        const filterParams = {
+            location,
+            form: vehicleType,
+            ...options
+        };
+        dispatch(filterCampers(filterParams));
+    };
 
     return (
         <aside className={styles.filters}>
@@ -112,7 +122,7 @@ export default function Filters() {
                 </div>
             </div>
 
-            <button className={styles.searchButton}>Search</button>
+            <button className={styles.searchButton} onClick={handleSearch}>Search</button>
         </aside>
     );
 }
