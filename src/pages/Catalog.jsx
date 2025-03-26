@@ -4,6 +4,7 @@ import { fetchCampers } from '../features/campers/campersSlice';
 import CamperCard from '../components/CamperCard';
 import Filters from "../components/Filters.jsx";
 import LoadMoreButton from '../components/LoadMoreButton';
+import styles from './Catalog.module.css'
 
 const Catalog = () => {
     const dispatch = useDispatch();
@@ -15,11 +16,11 @@ const Catalog = () => {
 
     return (
         <main>
-            <section className={'catalog'}>
-                <div className={'catalog-items'}>
+            <section className={styles.catalog}>
+                <div className={styles.catalogItems}>
                     <Filters />
                     {Array.isArray(items) && items.length > 0 ? (
-                        <ul>
+                        <ul className={styles.results}>
                             {items.map((camper) => (
                                 <CamperCard key={camper.id} camper={camper} />
                             ))}
@@ -28,8 +29,8 @@ const Catalog = () => {
                         <p>No campers found.</p>
                     )}
                 </div>
-                <LoadMoreButton />
             </section>
+            <LoadMoreButton />
         </main>
     );
 };

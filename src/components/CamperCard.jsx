@@ -1,7 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from './CamperCard.module.css'
 
 const CamperCard = ({ camper }) => {
+    console.log(camper);
     const {
         id,
         name,
@@ -13,7 +15,8 @@ const CamperCard = ({ camper }) => {
         engine,
         kitchen,
         AC,
-        bathroom
+        bathroom,
+        description
     } = camper;
 
     const navigate = useNavigate();
@@ -31,17 +34,25 @@ const CamperCard = ({ camper }) => {
     ].filter(Boolean);
 
     return (
-        <li>
-            <img src={gallery[0]?.thumb} alt={name} width={290} height={310} />
-            <h2>{name}</h2>
-            <p>€{price}.00</p>
-            <p>⭐ {rating} Reviews | 📍 {location}</p>
-            <ul>
-                {features.map((feature, index) => (
-                    <li key={index}>{feature}</li>
-                ))}
-            </ul>
-            <button onClick={handleShowMore}>Show more</button>
+        <li className={styles.card}>
+            <div>
+                <img className={styles.image} src={gallery[0]?.thumb} alt={name} width={290} height={310} />
+            </div>
+            <div className={styles.content}>
+                <div className={styles.titleRow}>                <h2 className={styles.title}>{name}</h2>
+                    <p className={styles.price}>€{price}.00</p></div>
+                <div className={styles.infoRow}>
+                    <div>⭐ {rating} Reviews</div>
+                    <div>📍 {location}</div>
+                </div>
+                <div className={styles.description}>{description}</div>
+                <ul className={styles.tags}>
+                    {features.map((feature, index) => (
+                        <li className={styles.tag} key={index}>{feature}</li>
+                    ))}
+                </ul>
+                <button className={styles.button} onClick={handleShowMore}>Show more</button>
+            </div>
         </li>
     );
 };

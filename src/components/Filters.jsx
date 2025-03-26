@@ -5,11 +5,41 @@ import {
     toggleOption,
 } from '../features/filters/filtersSlice';
 import styles from './Filters.module.css';
+import {
+    iconAC,
+    iconBathroom,
+    iconKitchen,
+    iconTV,
+    iconRadio,
+    iconFridge,
+    iconMicrowave,
+    iconGas,
+    iconWater,
+    iconTransmission,
+    iconPetrol,
+} from '../assets/images/icons';
 
 const optionLabels = {
-    AC: 'AC',
-    kitchen: 'Kitchen',
-    bathroom: 'Bathroom',
+    ac: {
+        label: 'AC',
+        icon: iconAC
+    },
+    automatic: {
+        label: 'Automatic',
+        icon: iconTransmission
+    },
+    kitchen: {
+        label: 'Kitchen',
+        icon: iconKitchen
+    },
+    tv: {
+        label: 'TV',
+        icon: iconTV
+    },
+    bathroom: {
+        label: 'Bathroom',
+        icon: iconBathroom
+    }
 };
 
 const vehicleTypes = ['panelTruck', 'fullyIntegrated', 'alcove'];
@@ -39,13 +69,14 @@ export default function Filters() {
             <div className={styles.section}>
                 <label className={styles.label}>Vehicle equipment</label>
                 <div className={styles.categories}>
-                    {Object.entries(optionLabels).map(([key, label]) => (
+                    {Object.entries(optionLabels).map(([key, props]) => (
                         <div
                             key={key}
                             className={`${styles.tag} ${options[key] ? styles.selected : ''}`}
                             onClick={() => dispatch(toggleOption(key))}
                         >
-                            {label}
+                            <img src={props.icon} alt={props.label} width="32px"/>
+                            {props.label}
                         </div>
                     ))}
                 </div>

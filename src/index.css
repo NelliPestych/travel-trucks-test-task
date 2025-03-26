@@ -21,16 +21,6 @@ li {
   text-decoration: none;
 }
 
-main .catalog {
-  padding: 48px 64px;
-}
-
-main .catalog .catalog-items {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
 ::-webkit-scrollbar {
   display: none;
 }

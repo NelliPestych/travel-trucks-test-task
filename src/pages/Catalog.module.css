@@ -1,7 +1,14 @@
 .catalog {
     display: flex;
     gap: 40px;
-    padding: 40px;
+    padding: 48px 64px;
+}
+
+.catalogItems {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
 }
 
 .filters {
@@ -14,10 +21,12 @@
 
 .cardList {
     list-style: none;
-    padding: 0;
     margin: 0;
     display: grid;
     gap: 32px;
+    border: 1px solid #DADDE1;
+    border-radius: 20px;
+    padding: 24px;
 }
 
 .loadMore {
