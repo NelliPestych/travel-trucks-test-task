@@ -1,6 +1,7 @@
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import {useEffect, useState} from 'react';
+import {useParams} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchCamperById} from '../features/campers/campersSlice';
 import styles from './CamperDetails.module.css';
 import Loader from '../components/Loader';
 
@@ -18,36 +19,24 @@ import {
     iconPetrol,
 } from '../assets/images/icons';
 
-const BASE_URL = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers';
-
 export default function CamperDetails() {
-    const { id } = useParams();
-    const [camper, setCamper] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const [activeTab, setActiveTab] = useState('features');
+    const {id} = useParams();
+    const dispatch = useDispatch();
 
-    const [formData, setFormData] = useState({ name: '', phone: '', comment: '' });
+    const camper = useSelector((state) => state.campers.selectedCamper);
+    const status = useSelector((state) => state.campers.selectedCamperStatus);
+    const error = useSelector((state) => state.campers.selectedCamperError);
+
+    const [activeTab, setActiveTab] = useState('features');
+    const [formData, setFormData] = useState({name: '', phone: '', comment: ''});
     const [errorMsg, setErrorMsg] = useState('');
 
     useEffect(() => {
-        const fetchCamper = async () => {
-            setIsLoading(true);
-            try {
-                const response = await axios.get(`${BASE_URL}/${id}`);
-                setCamper(response.data);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setIsLoading(false);
-            }
-        };
+        if (id) dispatch(fetchCamperById(id));
+    }, [dispatch, id]);
 
-        fetchCamper();
-    }, [id]);
-
-    if (isLoading) return <Loader />;
-    if (error) return <p>Error: {error}</p>;
+    if (status === 'loading') return <Loader/>;
+    if (status === 'failed') return <p>Error: {error}</p>;
     if (!camper) return null;
 
     const {
@@ -82,16 +71,16 @@ export default function CamperDetails() {
             <div className={styles.titleRow}>
                 <h1 className={styles.title}>{name}</h1>
                 <span className={styles.price}>
-          €{Number(price).toLocaleString('en-US', {
+                    €{Number(price).toLocaleString('en-US', {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
                 })}
-        </span>
+                </span>
             </div>
 
             <div className={styles.gallery}>
                 {gallery?.map((img, i) => (
-                    <img key={i} src={img.original} alt={`Gallery ${i}`} />
+                    <img key={i} src={img.original} alt={`Gallery ${i}`}/>
                 ))}
             </div>
 
@@ -112,63 +101,64 @@ export default function CamperDetails() {
                 </div>
             </div>
 
-            {activeTab === 'features' && (
-                <div className={styles.detailsWrapper}>
+            <div className={styles.detailsWrapper}>
+                {activeTab === 'features' && (
+
                     <div className={styles.featuresBox}>
                         <div className={styles.featuresList}>
                             {transmission && (
                                 <div className={styles.feature}>
-                                    <img src={iconTransmission} alt="Transmission" width="20" /> {transmission}
+                                    <img src={iconTransmission} alt="Transmission" width="20"/> {transmission}
                                 </div>
                             )}
                             {engine && (
                                 <div className={styles.feature}>
-                                    <img src={iconPetrol} alt="Engine" width="20" /> {engine}
+                                    <img src={iconPetrol} alt="Engine" width="20"/> {engine}
                                 </div>
                             )}
                             {kitchen && (
                                 <div className={styles.feature}>
-                                    <img src={iconKitchen} alt="Kitchen" width="20" /> Kitchen
+                                    <img src={iconKitchen} alt="Kitchen" width="20"/> Kitchen
                                 </div>
                             )}
                             {AC && (
                                 <div className={styles.feature}>
-                                    <img src={iconAC} alt="AC" width="20" /> AC
+                                    <img src={iconAC} alt="AC" width="20"/> AC
                                 </div>
                             )}
                             {bathroom && (
                                 <div className={styles.feature}>
-                                    <img src={iconBathroom} alt="Bathroom" width="20" /> Bathroom
+                                    <img src={iconBathroom} alt="Bathroom" width="20"/> Bathroom
                                 </div>
                             )}
                             {TV && (
                                 <div className={styles.feature}>
-                                    <img src={iconTV} alt="TV" width="20" /> TV
+                                    <img src={iconTV} alt="TV" width="20"/> TV
                                 </div>
                             )}
                             {radio && (
                                 <div className={styles.feature}>
-                                    <img src={iconRadio} alt="Radio" width="20" /> Radio
+                                    <img src={iconRadio} alt="Radio" width="20"/> Radio
                                 </div>
                             )}
                             {refrigerator && (
                                 <div className={styles.feature}>
-                                    <img src={iconFridge} alt="Refrigerator" width="20" /> Refrigerator
+                                    <img src={iconFridge} alt="Refrigerator" width="20"/> Refrigerator
                                 </div>
                             )}
                             {microwave && (
                                 <div className={styles.feature}>
-                                    <img src={iconMicrowave} alt="Microwave" width="20" /> Microwave
+                                    <img src={iconMicrowave} alt="Microwave" width="20"/> Microwave
                                 </div>
                             )}
                             {gas && (
                                 <div className={styles.feature}>
-                                    <img src={iconGas} alt="Gas" width="20" /> Gas
+                                    <img src={iconGas} alt="Gas" width="20"/> Gas
                                 </div>
                             )}
                             {water && (
                                 <div className={styles.feature}>
-                                    <img src={iconWater} alt="Water" width="20" /> Water
+                                    <img src={iconWater} alt="Water" width="20"/> Water
                                 </div>
                             )}
                         </div>
@@ -206,69 +196,70 @@ export default function CamperDetails() {
                             )}
                         </div>
                     </div>
+                )}
 
-                    <div className={styles.formBox}>
-                        <h3>Book your campervan now</h3>
-                        <p>Stay connected! We are always ready to help you.</p>
-
-                        <form
-                            onSubmit={(e) => {
-                                e.preventDefault();
-                                const hasError =
-                                    !formData.name.trim() || !/^[\d\s()+-]+$/.test(formData.phone);
-                                if (hasError) {
-                                    setErrorMsg('Please fill in all required fields correctly.');
-                                    return;
-                                }
-
-                                setErrorMsg('');
-                                alert('Camper successfully booked!');
-                                setFormData({ name: '', phone: '', comment: '' });
-                            }}
-                        >
-                            <input
-                                type="text"
-                                placeholder="Name"
-                                value={formData.name}
-                                onChange={(e) =>
-                                    setFormData({ ...formData, name: e.target.value })
-                                }
-                                required
-                            />
-                            <input
-                                type="tel"
-                                placeholder="Phone"
-                                value={formData.phone}
-                                onChange={(e) =>
-                                    setFormData({ ...formData, phone: e.target.value })
-                                }
-                                required
-                            />
-                            <textarea
-                                placeholder="Comment (optional)"
-                                value={formData.comment}
-                                onChange={(e) =>
-                                    setFormData({ ...formData, comment: e.target.value })
-                                }
-                            />
-                            <button type="submit">Send</button>
-                            {errorMsg && <p style={{ color: 'red' }}>{errorMsg}</p>}
-                        </form>
-                    </div>
-                </div>
-            )}
-
-            {activeTab === 'reviews' && (
-                <div className={styles.reviewsList}>
-                    {reviews?.map((rev, i) => (
-                        <div key={i} className={styles.reviewItem}>
-                            <span className={styles.reviewerName}>{rev.reviewer_name}</span>
-                            <span>{'⭐'.repeat(rev.reviewer_rating)}</span>
-                            <p>{rev.comment}</p>
+                {activeTab === 'reviews' && (
+                    <div className={styles.featuresBox}>
+                        <div className={styles.reviewsList}>
+                            {reviews?.map((rev, i) => (
+                                <div key={i} className={styles.reviewItem}>
+                                    <span className={styles.reviewerName}>{rev.reviewer_name}</span>
+                                    <span>{'⭐'.repeat(rev.reviewer_rating)}</span>
+                                    <p>{rev.comment}</p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
+                )}
+                <div className={styles.formBox}>
+                    <h3>Book your campervan now</h3>
+                    <p>Stay connected! We are always ready to help you.</p>
+
+                    <form
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            const hasError =
+                                !formData.name.trim() || !/^[\d\s()+-]+$/.test(formData.phone);
+                            if (hasError) {
+                                setErrorMsg('Please fill in all required fields correctly.');
+                                return;
+                            }
+
+                            setErrorMsg('');
+                            alert('Camper successfully booked!');
+                            setFormData({name: '', phone: '', comment: ''});
+                        }}
+                    >
+                        <input
+                            type="text"
+                            placeholder="Name"
+                            value={formData.name}
+                            onChange={(e) =>
+                                setFormData({...formData, name: e.target.value})
+                            }
+                            required
+                        />
+                        <input
+                            type="tel"
+                            placeholder="Phone"
+                            value={formData.phone}
+                            onChange={(e) =>
+                                setFormData({...formData, phone: e.target.value})
+                            }
+                            required
+                        />
+                        <textarea
+                            placeholder="Comment (optional)"
+                            value={formData.comment}
+                            onChange={(e) =>
+                                setFormData({...formData, comment: e.target.value})
+                            }
+                        />
+                        <button type="submit">Send</button>
+                        {errorMsg && <p style={{color: 'red'}}>{errorMsg}</p>}
+                    </form>
                 </div>
-            )}
+            </div>
         </section>
     );
 }

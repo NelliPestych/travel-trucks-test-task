@@ -1,5 +1,5 @@
-// src/components/CamperCard.jsx
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CamperCard = ({ camper }) => {
     const {
@@ -15,6 +15,12 @@ const CamperCard = ({ camper }) => {
         AC,
         bathroom
     } = camper;
+
+    const navigate = useNavigate();
+
+    const handleShowMore = () => {
+        navigate(`/catalog/${id}`);
+    };
 
     const features = [
         transmission && 'Automatic',
@@ -35,7 +41,7 @@ const CamperCard = ({ camper }) => {
                     <li key={index}>{feature}</li>
                 ))}
             </ul>
-            <button>Show more</button>
+            <button onClick={handleShowMore}>Show more</button>
         </li>
     );
 };

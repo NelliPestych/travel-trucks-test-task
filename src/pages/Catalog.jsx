@@ -10,13 +10,14 @@ const Catalog = () => {
     const { items, status, error } = useSelector((state) => state.campers);
 
     useEffect(() => {
-        dispatch(fetchCampers({}));
+        dispatch(fetchCampers());
     }, [dispatch]);
 
     return (
         <main>
             <section className={'catalog'}>
                 <div className={'catalog-items'}>
+                    <Filters />
                     {Array.isArray(items) && items.length > 0 ? (
                         <ul>
                             {items.map((camper) => (
@@ -27,7 +28,6 @@ const Catalog = () => {
                         <p>No campers found.</p>
                     )}
                 </div>
-                <Filters />
                 <LoadMoreButton />
             </section>
         </main>
