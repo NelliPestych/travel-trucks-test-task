@@ -4,6 +4,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import {fetchCamperById} from '../features/campers/campersSlice';
 import styles from './CamperDetails.module.css';
 import Loader from '../components/Loader';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 import {
     iconAC,
@@ -17,6 +20,8 @@ import {
     iconWater,
     iconTransmission,
     iconPetrol,
+    locationIcon,
+    starIcon
 } from '../assets/images/icons';
 
 export default function CamperDetails() {
@@ -28,7 +33,7 @@ export default function CamperDetails() {
     const error = useSelector((state) => state.campers.selectedCamperError);
 
     const [activeTab, setActiveTab] = useState('features');
-    const [formData, setFormData] = useState({name: '', phone: '', comment: ''});
+    const [formData, setFormData] = useState({ name: '', email: '', bookingDate: '', comment: '' });
     const [errorMsg, setErrorMsg] = useState('');
 
     useEffect(() => {
@@ -38,6 +43,25 @@ export default function CamperDetails() {
     if (status === 'loading') return <Loader/>;
     if (status === 'failed') return <p>Error: {error}</p>;
     if (!camper) return null;
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const hasError = !formData.name.trim() || !formData.email.trim() || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email) || !formData.bookingDate;
+
+        if (hasError) {
+            setErrorMsg('Please fill in all required fields correctly.');
+            return;
+        }
+
+        try {
+            await axios.post('https://jsonplaceholder.typicode.com/posts', formData);
+            toast.success('Camper successfully booked!');
+            setFormData({ name: '', email: '', bookingDate: '', comment: '' });
+            setErrorMsg('');
+        } catch (err) {
+            toast.error('Booking failed. Please try again.');
+        }
+    };
 
     const {
         name,
@@ -68,8 +92,25 @@ export default function CamperDetails() {
 
     return (
         <section className={styles.container}>
+
+            <ToastContainer position="top-center" autoClose={3000} hideProgressBar newestOnTop />
+
             <div className={styles.titleRow}>
                 <h1 className={styles.title}>{name}</h1>
+                <div className={styles.infoRow}>
+                    <div className={styles.ratingBlock}>
+                        <img src={starIcon} alt="Star" width="16" height="16" />
+                        <span>{rating}</span>
+                        <a className={styles.reviewsLink}>
+                            {reviews?.length || 0} Reviews
+                        </a>
+                    </div>
+
+                    <div className={styles.locationBlock}>
+                        <img src={locationIcon} alt="Location" width="16" height="16" />
+                        <span>{location}</span>
+                    </div>
+                </div>
                 <span className={styles.price}>
                     €{Number(price).toLocaleString('en-US', {
                     minimumFractionDigits: 2,
@@ -215,24 +256,10 @@ export default function CamperDetails() {
                     <h3>Book your campervan now</h3>
                     <p>Stay connected! We are always ready to help you.</p>
 
-                    <form
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                            const hasError =
-                                !formData.name.trim() || !/^[\d\s()+-]+$/.test(formData.phone);
-                            if (hasError) {
-                                setErrorMsg('Please fill in all required fields correctly.');
-                                return;
-                            }
-
-                            setErrorMsg('');
-                            alert('Camper successfully booked!');
-                            setFormData({name: '', phone: '', comment: ''});
-                        }}
-                    >
+                    <form onSubmit={handleSubmit}>
                         <input
                             type="text"
-                            placeholder="Name"
+                            placeholder="Name*"
                             value={formData.name}
                             onChange={(e) =>
                                 setFormData({...formData, name: e.target.value})
@@ -241,15 +268,24 @@ export default function CamperDetails() {
                         />
                         <input
                             type="tel"
-                            placeholder="Phone"
-                            value={formData.phone}
+                            placeholder="Email*"
+                            value={formData.email}
                             onChange={(e) =>
-                                setFormData({...formData, phone: e.target.value})
+                                setFormData({...formData, email: e.target.value})
+                            }
+                            required
+                        />
+                        <input
+                            type="date"
+                            placeholder="Booking date*"
+                            value={formData.bookingDate}
+                            onChange={(e) =>
+                                setFormData({...formData, bookingDate: e.target.value})
                             }
                             required
                         />
                         <textarea
-                            placeholder="Comment (optional)"
+                            placeholder="Comment"
                             value={formData.comment}
                             onChange={(e) =>
                                 setFormData({...formData, comment: e.target.value})

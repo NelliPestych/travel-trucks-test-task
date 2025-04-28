@@ -12,6 +12,8 @@ import iconPetrol from './icon-petrol.svg';
 import iconVan from './icon-van.svg';
 import iconFull from './icon-full.svg';
 import iconAlcove from './icon-alcove.svg';
+import locationIcon from './location.svg';
+import starIcon from './star.svg';
 
 export {
     iconAC,
@@ -27,5 +29,7 @@ export {
     iconPetrol,
     iconVan,
     iconFull,
-    iconAlcove
+    iconAlcove,
+    locationIcon,
+    starIcon
 };
