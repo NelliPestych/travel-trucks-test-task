@@ -4,7 +4,7 @@
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 28px;
 }
 
 .titleRow {
@@ -28,7 +28,7 @@
 
 .gallery {
     display: flex;
-    gap: 16px;
+    gap: 48px;
     overflow-x: auto;
 }
 
@@ -61,7 +61,7 @@
 
 .tab.active {
     color: #e44848;
-    border-bottom: 2px solid #e44848;
+    border-bottom: 5px solid #e44848;
 }
 
 .detailsWrapper {
@@ -78,6 +78,15 @@
     background-color: #fff;
 }
 
+.reviewsBox {
+    padding: 0;
+    border: none;
+}
+
+.formBox {
+    padding: 44px 57px;
+}
+
 .featuresList {
     display: flex;
     flex-wrap: wrap;
@@ -87,9 +96,15 @@
 .feature {
     background-color: #f2f4f7;
     color: #101828;
-    padding: 8px 12px;
+    padding: 12px 18px;
     border-radius: 100px;
     font-size: 14px;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 }
 
 .vehicleInfo {
@@ -108,7 +123,7 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    margin-top: 20px;
+    margin-top: 28px;
 }
 
 .reviewItem {
@@ -128,12 +143,28 @@
     gap: 12px;
 }
 
+.formBox h3 {
+    font-size: 20px;
+    line-height: 24px;
+    color: #101828;
+    margin-bottom: 8px;
+}
+
+.formBox p {
+    color: #6C717B;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 24px;
+}
+
 input, textarea {
     padding: 14px;
     border-radius: 10px;
-    border: 1px solid #dadde1;
+    border: none;
     background-color: #f7f7f7;
+    color: #6C717B;
     font-size: 16px;
+    line-height: 24px;
 }
 
 button[type="submit"] {
@@ -144,7 +175,11 @@ button[type="submit"] {
     border-radius: 200px;
     cursor: pointer;
     font-size: 16px;
+    line-height: 24px;
     transition: background-color 0.3s;
+    width: 166px;
+    height: 56px;
+    margin: 0 auto;
 }
 
 button[type="submit"]:hover {
@@ -182,5 +217,60 @@ button[type="submit"]:hover {
     gap: 8px;
     font-size: 16px;
     color: #555;
+}
+
+.reviewsList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.reviewItem {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.reviewerRating {
+
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    background-color: #F2F4F7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 24px;
+    color: #E44848;
+    flex-shrink: 0;
+}
+
+.reviewContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 16px;
+}
+
+.reviewerName {
+    font-weight: 600;
+    font-size: 16px;
+    color: #101828;
+}
+
+.stars {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.comment {
+    font-size: 16px;
+    color: #475467;
 }
 

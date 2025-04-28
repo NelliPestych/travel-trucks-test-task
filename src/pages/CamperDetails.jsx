@@ -21,7 +21,8 @@ import {
     iconTransmission,
     iconPetrol,
     locationIcon,
-    starIcon
+    starIcon,
+    starEmpty
 } from '../assets/images/icons';
 
 export default function CamperDetails() {
@@ -240,13 +241,35 @@ export default function CamperDetails() {
                 )}
 
                 {activeTab === 'reviews' && (
-                    <div className={styles.featuresBox}>
+                    <div className={`${styles.featuresBox} ${styles.reviewsBox}`}>
                         <div className={styles.reviewsList}>
                             {reviews?.map((rev, i) => (
                                 <div key={i} className={styles.reviewItem}>
-                                    <span className={styles.reviewerName}>{rev.reviewer_name}</span>
-                                    <span>{'⭐'.repeat(rev.reviewer_rating)}</span>
-                                    <p>{rev.comment}</p>
+
+                                    <div className={styles.reviewContent}>
+                                        <div className={styles.avatar}>
+                                            {rev.reviewer_name?.charAt(0)}
+                                        </div>
+
+
+                                        <div className={styles.reviewerRating}>
+                                            <div className={styles.reviewerName}>{rev.reviewer_name}</div>
+
+                                            <div className={styles.stars}>
+                                                {Array.from({ length: 5 }, (_, index) => (
+                                                    <img
+                                                        key={index}
+                                                        src={index < rev.reviewer_rating ? starIcon : starEmpty}
+                                                        alt="star"
+                                                        width="16"
+                                                        height="16"
+                                                    />
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <p className={styles.comment}>{rev.comment}</p>
                                 </div>
                             ))}
                         </div>
