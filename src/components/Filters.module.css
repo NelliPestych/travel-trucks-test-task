@@ -49,12 +49,17 @@
     cursor: pointer;
     transition: 0.2s;
     text-align: center;
+    padding: 4px;
 }
 
 .vehicleTypes {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+}
+
+.tag:hover, .vehicleType:hover {
+    border: 1px solid #e44848;
 }
 
 .tag.selected, .vehicleType.selected {
