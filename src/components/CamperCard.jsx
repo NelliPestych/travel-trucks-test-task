@@ -52,7 +52,14 @@ const CamperCard = ({ camper }) => {
         bathroom && 'Bathroom'
     ].filter(Boolean);
 
-    const iconArr = [iconTransmission, iconPetrol, iconKitchen, iconAC, iconTV, iconBathroom];
+    const iconsObj = {
+        Automatic: iconTransmission,
+        Petrol: iconPetrol,
+        Kitchen: iconKitchen,
+        AC: iconAC,
+        TV: iconTV,
+        Bathroom: iconBathroom
+    };
 
     return (
         <li className={styles.card}>
@@ -61,7 +68,7 @@ const CamperCard = ({ camper }) => {
             </div>
             <div className={styles.content}>
                 <div className={styles.titleRow}>                <h2 className={styles.title}>{name}</h2>
-                    <p className={styles.price}>€{price}.00</p></div>
+                    <p className={styles.price}>€{price}</p></div>
                 <div className={styles.infoRow}>
                     <div className={styles.infoRowItem}><img src={starIcon} alt="Star" width="16" height="16" /> {rating} Reviews</div>
                     <div className={styles.infoRowItem}><img src={locationIcon} alt="Location" width="16" height="16" /> {location}</div>
@@ -69,7 +76,7 @@ const CamperCard = ({ camper }) => {
                 <div className={styles.description}>{description}</div>
                 <ul className={styles.tags}>
                     {features.map((feature, index) => (
-                        <li className={styles.tag} key={index}><img src={iconArr[index]} alt={styles.tag} width="20"/>{feature}</li>
+                        <li className={styles.tag} key={index}><img src={iconsObj[feature]} alt={styles.tag} width="20"/>{feature}</li>
                     ))}
                 </ul>
                 <button className={styles.button} onClick={handleShowMore}>Show more</button>
