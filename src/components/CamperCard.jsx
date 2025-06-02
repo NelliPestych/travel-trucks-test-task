@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleFavorite } from '../features/favorites/favoritesSlice';
 import styles from './CamperCard.module.css';
 
 import {
@@ -16,11 +18,12 @@ import {
     iconPetrol,
     locationIcon,
     starIcon,
-    starEmpty
+    starEmpty,
+    iconHeart,
+    iconHeartActive
 } from '../assets/images/icons';
 
 const CamperCard = ({ camper }) => {
-    console.log(camper);
     const {
         id,
         name,
@@ -34,10 +37,19 @@ const CamperCard = ({ camper }) => {
         AC,
         TV,
         bathroom,
-        description
+        description,
+        reviews
     } = camper;
 
     const navigate = useNavigate();
+
+    const dispatch = useDispatch();
+    const favorites = useSelector(state => state?.favorites?.items || []);
+    const isFavorite = favorites.includes(id);
+
+    const handleToggleFavorite = () => {
+        dispatch(toggleFavorite(id));
+    };
 
     const handleShowMore = () => {
         navigate(`/catalog/${id}`);
@@ -67,13 +79,26 @@ const CamperCard = ({ camper }) => {
                 <img className={styles.image} src={gallery[0]?.thumb} alt={name} width={290} height={310} />
             </div>
             <div className={styles.content}>
-                <div className={styles.titleRow}>                <h2 className={styles.title}>{name}</h2>
-                    <p className={styles.price}>€{price}</p></div>
+                <div className={styles.titleRow}>
+
+                    <div><h2 className={styles.title}>{name}</h2></div>
+
+                    <div className={styles.rightTitleBlock}>
+                        <p className={styles.price}>€{price}</p>
+                        <button onClick={handleToggleFavorite} className={styles.favoriteBtn} aria-label="Add to favorites">
+                            <img
+                                src={`${isFavorite ? iconHeartActive : iconHeart}`}
+                                alt="Favorite"
+                            />
+                        </button>
+                    </div>
+
+                </div>
                 <div className={styles.infoRow}>
-                    <div className={styles.infoRowItem}><img src={starIcon} alt="Star" width="16" height="16" /> {rating} Reviews</div>
+                    <div className={styles.infoRowItem}><img src={starIcon} alt="Star" width="16" height="16" /> {rating}({reviews.length || "0"} Reviews)</div>
                     <div className={styles.infoRowItem}><img src={locationIcon} alt="Location" width="16" height="16" /> {location}</div>
                 </div>
-                <div className={styles.description}>{description}</div>
+                <div className={styles.description}>{description.length > 60 ? description.slice(0, 60) + '...' : description}</div>
                 <ul className={styles.tags}>
                     {features.map((feature, index) => (
                         <li className={styles.tag} key={index}><img src={iconsObj[feature]} alt={styles.tag} width="20"/>{feature}</li>

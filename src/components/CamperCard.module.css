@@ -25,9 +25,16 @@
 
 .titleRow {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 8px;
+}
+
+.rightTitleBlock {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
 }
 
 .title {
@@ -69,6 +76,7 @@
     color: #475467;
     line-height: 1.4;
     margin-bottom: 16px;
+    height: 24px;
 }
 
 .tags {
@@ -115,4 +123,11 @@
     border: none;
     cursor: pointer;
     font-size: 22px;
+}
+
+.favoriteBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }

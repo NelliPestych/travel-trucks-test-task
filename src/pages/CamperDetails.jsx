@@ -6,6 +6,8 @@ import styles from './CamperDetails.module.css';
 import Loader from '../components/Loader';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
 
 import {
@@ -47,10 +49,16 @@ export default function CamperDetails() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const hasError = !formData.name.trim() || !formData.email.trim() || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email) || !formData.bookingDate;
 
-        if (hasError) {
-            setErrorMsg('Please fill in all required fields correctly.');
+        const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
+
+        if (!formData.name.trim() || !formData.email.trim() || !formData.bookingDate) {
+            toast.error('Please fill in all required fields.');
+            return;
+        }
+
+        if (!isEmailValid) {
+            toast.error('Please enter a valid email address.');
             return;
         }
 
@@ -94,8 +102,6 @@ export default function CamperDetails() {
     return (
         <section className={styles.container}>
 
-            <ToastContainer position="top-center" autoClose={3000} hideProgressBar newestOnTop />
-
             <div className={styles.titleRow}>
                 <h1 className={styles.title}>{name}</h1>
                 <div className={styles.infoRow}>
@@ -103,7 +109,7 @@ export default function CamperDetails() {
                         <img src={starIcon} alt="Star" width="16" height="16" />
                         <span>{rating}</span>
                         <a className={styles.reviewsLink}>
-                            {reviews?.length || 0} Reviews
+                            ({reviews?.length || 0} Reviews)
                         </a>
                     </div>
 
@@ -112,12 +118,7 @@ export default function CamperDetails() {
                         <span>{location}</span>
                     </div>
                 </div>
-                <span className={styles.price}>
-                    €{Number(price).toLocaleString('en-US', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                })}
-                </span>
+                <span className={styles.price}>€{price}</span>
             </div>
 
             <div className={styles.gallery}>
@@ -146,7 +147,7 @@ export default function CamperDetails() {
             <div className={styles.detailsWrapper}>
                 {activeTab === 'features' && (
 
-                    <div className={styles.featuresBox}>
+                    <div className={`${styles.featuresBox} ${styles.featuresContainer}`}>
                         <div className={styles.featuresList}>
                             {transmission && (
                                 <div className={styles.feature}>
@@ -206,9 +207,11 @@ export default function CamperDetails() {
                         </div>
 
                         <div className={styles.vehicleInfo}>
+                            <div className={styles.vehicleDetails}>Vehicle details</div>
+
                             {form && (
                                 <div className={styles.vehicleInfoRow}>
-                                    <span>Form</span> <span>{form}</span>
+                                    <span>Form</span> <span className={styles.vehicleInfoForm}>{form}</span>
                                 </div>
                             )}
                             {length && (
@@ -276,6 +279,13 @@ export default function CamperDetails() {
                     </div>
                 )}
                 <div className={styles.formBox}>
+
+                    <ToastContainer
+                        position="bottom-right"
+                        autoClose={3000}
+                        hideProgressBar
+                    />
+
                     <h3>Book your campervan now</h3>
                     <p>Stay connected! We are always ready to help you.</p>
 
@@ -298,17 +308,23 @@ export default function CamperDetails() {
                             }
                             required
                         />
-                        <input
-                            type="date"
-                            placeholder="Booking date*"
-                            value={formData.bookingDate}
-                            onChange={(e) =>
-                                setFormData({...formData, bookingDate: e.target.value})
-                            }
+                        <DatePicker
+                            selected={formData.bookingDate ? new Date(formData.bookingDate) : null}
+                            onChange={(date) => {
+                                setFormData({
+                                    ...formData,
+                                    bookingDate: date ? date.toISOString().split('T')[0] : '',
+                                });
+                            }}
+                            placeholderText="Booking date*"
+                            dateFormat="dd.MM.yyyy"
+                            className={styles.input}
                             required
+                            minDate={new Date()}
                         />
                         <textarea
                             placeholder="Comment"
+                            className={styles.comment}
                             value={formData.comment}
                             onChange={(e) =>
                                 setFormData({...formData, comment: e.target.value})

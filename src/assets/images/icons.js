@@ -15,6 +15,8 @@ import iconAlcove from './icon-alcove.svg';
 import locationIcon from './location.svg';
 import starIcon from './star.svg';
 import starEmpty from './star-empty.svg';
+import iconHeart from './iconHeart.svg';
+import iconHeartActive from './iconHeartActive.svg';
 
 export {
     iconAC,
@@ -33,5 +35,7 @@ export {
     iconAlcove,
     locationIcon,
     starIcon,
-    starEmpty
+    starEmpty,
+    iconHeart,
+    iconHeartActive
 };

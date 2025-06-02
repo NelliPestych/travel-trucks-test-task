@@ -9,7 +9,7 @@ import styles from './Catalog.module.css';
 const Catalog = () => {
     const dispatch = useDispatch();
     const { items, status, error } = useSelector((state) => state.campers);
-    const [visibleCount, setVisibleCount] = useState(8);
+    const [visibleCount, setVisibleCount] = useState(4);
 
     useEffect(() => {
         dispatch(fetchCampers());

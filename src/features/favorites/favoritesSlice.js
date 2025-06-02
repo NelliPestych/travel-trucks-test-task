@@ -8,7 +8,7 @@ const getInitialFavorites = () => {
 const favoritesSlice = createSlice({
     name: 'favorites',
     initialState: {
-        items: getInitialFavorites(), // array of camper IDs
+        items: getInitialFavorites(),
     },
     reducers: {
         toggleFavorite: (state, action) => {
