@@ -12,6 +12,13 @@
     width: 100%;
 }
 
+.catalogItemsNotFound {
+    position: absolute;
+    left: 60vw;
+    right: 0;
+    top: 20vh;
+}
+
 .filters {
     width: 260px;
 }
@@ -25,7 +32,7 @@
     margin: 0;
     display: grid;
     gap: 32px;
-    border: 1px solid #DADDE1;
+    border: 1px solid var(--color-border);
     border-radius: 20px;
     padding: 24px;
 }
@@ -35,13 +42,13 @@
     padding: 12px 24px;
     border: none;
     border-radius: 200px;
-    background-color: #e44848;
-    color: white;
+    background-color: var(--color-red);
+    color: var(--color-white);
     font-size: 16px;
     cursor: pointer;
 }
 
 .error {
-    color: #e44848;
+    color: var(--color-red);
     font-weight: bold;
 }

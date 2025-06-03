@@ -2,9 +2,9 @@
     display: flex;
     gap: 24px;
     padding: 24px;
-    border: 1px solid #dadde1;
+    border: 1px solid var(--color-border);
     border-radius: 20px;
-    background-color: #fff;
+    background-color: var(--color-white);
     box-shadow: 0px 4px 16px rgba(17, 18, 19, 0.03);
     margin-bottom: 20px;
     position: relative;
@@ -40,13 +40,13 @@
 .title {
     font-size: 24px;
     font-weight: 700;
-    color: #101828;
+    color: var(--color-main);
 }
 
 .price {
     font-size: 20px;
     font-weight: 600;
-    color: #101828;
+    color: var(--color-main);
 }
 
 .infoRow {
@@ -54,7 +54,7 @@
     align-items: center;
     gap: 16px;
     font-size: 14px;
-    color: #101828;
+    color: var(--color-main);
     margin-bottom: 16px;
 }
 
@@ -73,7 +73,7 @@
 
 .description {
     font-size: 16px;
-    color: #475467;
+    color: var(--color-text);
     line-height: 1.4;
     margin-bottom: 16px;
     height: 24px;
@@ -93,15 +93,15 @@
     font-size: 14px;
     padding: 12px 18px;
     border-radius: 100px;
-    background-color: #f2f4f7;
-    color: #101828;
+    background-color: var(--color-background);
+    color: var(--color-main);
 }
 
 .button {
-    background-color: #e44848;
+    background-color: var(--color-red);
     width: 166px;
     height: 56px;
-    color: white;
+    color: var(--color-white);
     font-size: 16px;
     padding: 12px 24px;
     border: none;
@@ -112,7 +112,7 @@
 }
 
 .button:hover {
-    background-color: #db4343;
+    background-color: var(--color-red-focus);
 }
 
 .favorite {

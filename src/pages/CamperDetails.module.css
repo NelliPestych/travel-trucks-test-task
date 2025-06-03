@@ -16,13 +16,13 @@
 .title {
     font-size: 28px;
     font-weight: 700;
-    color: #101828;
+    color: var(--color-main);
 }
 
 .price {
     font-size: 24px;
     font-weight: 600;
-    color: #101828;
+    color: var(--color-main);
 }
 
 .gallery {
@@ -40,14 +40,14 @@
 
 .description {
     font-size: 16px;
-    color: #475467;
+    color: var(--color-text);
     line-height: 1.5;
 }
 
 .tabs {
     display: flex;
     gap: 32px;
-    border-bottom: 1px solid #dadde1;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .tab {
@@ -55,12 +55,12 @@
     font-weight: 500;
     padding-bottom: 8px;
     cursor: pointer;
-    color: #101828;
+    color: var(--color-main);
 }
 
 .tab.active {
-    color: #e44848;
-    border-bottom: 5px solid #e44848;
+    color: var(--color-red);
+    border-bottom: 5px solid var(--color-red);
 }
 
 .detailsWrapper {
@@ -71,15 +71,15 @@
 
 .featuresBox, .formBox {
     flex: 1 1 420px;
-    border: 1px solid #dadde1;
+    border: 1px solid var(--color-border);
     border-radius: 20px;
-    background-color: #fff;
+    background-color: var(--color-white);
 }
 
 .featuresContainer {
     padding: 44px 52px;
-    background-color: #F7F7F7;
-    border: 1px solid #F7F7F7;
+    background-color: var(--color-background-light);
+    border: 1px solid var(--color-background-light);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -101,8 +101,8 @@
 }
 
 .feature {
-    background-color: #F2F4F7;
-    color: #101828;
+    background-color: var(--color-background);
+    color: var(--color-main);
     padding: 12px 18px;
     border-radius: 100px;
     font-size: 16px;
@@ -124,7 +124,7 @@
     text-align: left;
     padding-bottom: 24px;
     margin-bottom: 24px;
-    border-bottom: 1px solid #DADDE1;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .vehicleInfoRow {
@@ -132,7 +132,7 @@
     justify-content: space-between;
     margin-bottom: 8px;
     font-size: 16px;
-    color: #101828;
+    color: var(--color-main);
 }
 
 .vehicleInfoForm:first-letter {
@@ -154,7 +154,7 @@
 
 .reviewerName {
     font-weight: 600;
-    color: #101828;
+    color: var(--color-main);
 }
 
 .formBox form {
@@ -166,19 +166,15 @@ form input {
     margin-bottom: 14px;
 }
 
-.comment {
-    margin-bottom: 24px;
-}
-
 .formBox h3 {
     font-size: 20px;
     line-height: 24px;
-    color: #101828;
+    color: var(--color-main);
     margin-bottom: 8px;
 }
 
 .formBox p {
-    color: #6C717B;
+    color: var(--color-label);
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 24px;
@@ -188,16 +184,16 @@ input, textarea {
     padding: 14px;
     border-radius: 10px;
     border: none;
-    background-color: #f7f7f7;
-    color: #6C717B;
+    background-color: var(--color-background-light);
+    color: var(--color-main);
     font-size: 16px;
     line-height: 24px;
     width: 100%;
 }
 
 button[type="submit"] {
-    background-color: #e44848;
-    color: white;
+    background-color: var(--color-red);
+    color: var(--color-white);
     padding: 12px 20px;
     border: none;
     border-radius: 200px;
@@ -211,7 +207,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #db4343;
+    background-color: var(--color-red-focus);
 }
 
 .infoRow {
@@ -225,7 +221,7 @@ button[type="submit"]:hover {
     display: flex;
     align-items: center;
     font-size: 16px;
-    color: #000;
+    color: var(--color-main);
 }
 
 .ratingBlock img {
@@ -234,7 +230,7 @@ button[type="submit"]:hover {
 
 .reviewsLink {
     font-size: 16px;
-    color: #101828;
+    color: var(--color-main);
     text-decoration: none;
 }
 
@@ -247,7 +243,7 @@ button[type="submit"]:hover {
     align-items: center;
     gap: 4px;
     font-size: 16px;
-    color: #101828;
+    color: var(--color-main);
 }
 
 .reviewsList {
@@ -265,14 +261,14 @@ button[type="submit"]:hover {
 .avatar {
     width: 60px;
     height: 60px;
-    background-color: #F2F4F7;
+    background-color: var(--color-background);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
     font-size: 24px;
-    color: #E44848;
+    color: var(--color-red);
     flex-shrink: 0;
 }
 
@@ -287,7 +283,7 @@ button[type="submit"]:hover {
 .reviewerName {
     font-weight: 600;
     font-size: 16px;
-    color: #101828;
+    color: var(--color-main);
 }
 
 .stars {
@@ -297,7 +293,12 @@ button[type="submit"]:hover {
 }
 
 .comment {
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 24px;
     font-size: 16px;
-    color: #475467;
+}
+
+input:focus, .comment:focus {
+    outline: 1px solid var(--color-red);
 }
 

@@ -1,13 +1,12 @@
 .hero {
     position: relative;
-    background-image: url('/hero.jpg'); /* або твій шлях до фото кемпера */
+    background-image: url('/hero.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
     display: flex;
     align-items: center;
-    /*padding-left: 64px;*/
-    color: white;
+    color: var(--color-white);
 }
 
 .overlay {
@@ -23,28 +22,31 @@
 
 .title {
     font-size: 48px;
+    line-height: 32px;
     font-weight: 700;
     margin-bottom: 16px;
 }
 
 .subtitle {
     font-size: 24px;
-    margin-bottom: 32px;
+    line-height: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
 }
 
 .button {
-    background-color: #e44848;
-    color: white;
+    background-color: var(--color-red);
+    color: var(--color-white);
     font-size: 16px;
     padding: 12px 24px;
     border: none;
     border-radius: 200px;
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 172px;
+    width: 173px;
     height: 56px;
 }
 
 .button:hover {
-    background-color: #d84343;
+    background-color: var(--color-red-focus);
 }

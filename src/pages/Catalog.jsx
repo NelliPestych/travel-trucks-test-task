@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCampers } from '../features/campers/campersSlice';
 import CamperCard from '../components/CamperCard';
 import Filters from "../components/Filters.jsx";
+import Loader from '../components/Loader';
 import LoadMoreButton from '../components/LoadMoreButton';
 import styles from './Catalog.module.css';
 
@@ -20,7 +21,7 @@ const Catalog = () => {
     };
 
     if (status === 'loading') {
-        return <div>Loading...</div>;
+        return <Loader/>;
     }
 
     if (status === 'failed') {
@@ -39,7 +40,7 @@ const Catalog = () => {
                             ))}
                         </ul>
                     ) : (
-                        <p>No campers found.</p>
+                        <p className={styles.catalogItemsNotFound}>No campers found.</p>
                     )}
                 </div>
             </section>

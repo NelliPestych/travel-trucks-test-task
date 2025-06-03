@@ -1,12 +1,12 @@
 .button {
     display: block;
     margin: 40px auto;
-    color: #101828;
-    background-color: #FFFFFF;
+    color: var(--color-main);
+    background-color: var(--color-white);
     font-size: 16px;
     font-weight: 500;
     padding: 12px 24px;
-    border: 1px solid #DADDE1;
+    border: 1px solid var(--color-border);
     border-radius: 200px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -15,5 +15,5 @@
 }
 
 .button:hover {
-    border: 1px solid #D84343;
+    border: 1px solid var(--color-red-focus);
 }
