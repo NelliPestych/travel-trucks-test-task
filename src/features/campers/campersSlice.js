@@ -71,6 +71,9 @@ const campersSlice = createSlice({
 
                 return matchesLocation && matchesForm && matchesOptions;
             });
+        },
+        clearCampers(state) {
+            state.items = [];
         }
     },
     extraReducers: (builder) => {
@@ -103,5 +106,5 @@ const campersSlice = createSlice({
     }
 });
 
-export const { filterCampers } = campersSlice.actions;
+export const { filterCampers, clearCampers } = campersSlice.actions;
 export default campersSlice.reducer;

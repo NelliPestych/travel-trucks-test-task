@@ -160,11 +160,14 @@
 .formBox form {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+}
+
+form input {
+    margin-bottom: 14px;
 }
 
 .comment {
-    margin-bottom: 10px;
+    margin-bottom: 24px;
 }
 
 .formBox h3 {
@@ -257,10 +260,6 @@ button[type="submit"]:hover {
     display: flex;
     gap: 16px;
     align-items: flex-start;
-}
-
-.reviewerRating {
-
 }
 
 .avatar {

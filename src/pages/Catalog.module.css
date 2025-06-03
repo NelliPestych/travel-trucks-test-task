@@ -7,6 +7,7 @@
 .catalogItems {
     display: flex;
     flex-direction: row;
+    gap: 64px;
     justify-content: space-between;
     width: 100%;
 }

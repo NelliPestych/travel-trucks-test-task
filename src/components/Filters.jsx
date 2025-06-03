@@ -19,9 +19,10 @@ import {
     iconPetrol,
     iconVan,
     iconFull,
-    iconAlcove
+    iconAlcove,
+    locationIcon
 } from '../assets/images/icons';
-import {filterCampers} from '../features/campers/campersSlice';
+import { filterCampers, clearCampers } from '../features/campers/campersSlice';
 
 const optionLabels = {
     ac: {
@@ -66,12 +67,15 @@ export default function Filters() {
     const dispatch = useDispatch();
     const { location, vehicleType, options } = useSelector((state) => state.filters);
 
+    console.log(location, vehicleType, options);
+
     const handleSearch = () => {
         const filterParams = {
             location,
             form: vehicleType,
             ...options
         };
+        dispatch(clearCampers());
         dispatch(filterCampers(filterParams));
     };
 
@@ -79,13 +83,33 @@ export default function Filters() {
         <aside className={styles.filters}>
             <div className={styles.section}>
                 <label className={styles.label}>Location</label>
-                <input
-                    type="text"
-                    placeholder="Kyiv, Ukraine"
-                    value={location}
-                    onChange={(e) => dispatch(setLocation(e.target.value))}
-                    className={styles.input}
-                />
+                {/*<input*/}
+                {/*    type="text"*/}
+                {/*    placeholder="City"*/}
+                {/*    value={location}*/}
+                {/*    onChange={(e) => dispatch(setLocation(e.target.value))}*/}
+                {/*    className={styles.input}*/}
+                {/*/>*/}
+                {/*<div className={styles.inputWrapper}>*/}
+                {/*    <img src={locationIcon} className={styles.icon} alt="Location icon" />*/}
+                {/*    <input*/}
+                {/*        type="text"*/}
+                {/*        placeholder="City"*/}
+                {/*        value={location}*/}
+                {/*        onChange={(e) => dispatch(setLocation(e.target.value))}*/}
+                {/*        className={styles.input}*/}
+                {/*    />*/}
+                {/*</div>*/}
+                <div className={styles.inputWrapper}>
+                    <input
+                        type="text"
+                        placeholder="City"
+                        value={location}
+                        onChange={(e) => dispatch(setLocation(e.target.value))}
+                        className={styles.input}
+                    />
+                    <img src={locationIcon} className={styles.icon} alt="Location icon" />
+                </div>
             </div>
 
             <div className={styles.section}>
@@ -113,7 +137,7 @@ export default function Filters() {
                             className={`${styles.vehicleType} ${
                                 vehicleType === type ? styles.selected : ''
                             }`}
-                            onClick={() => dispatch(setVehicleType(type))}
+                            onClick={() => dispatch(setVehicleType(vehicleType === type ? '' : type))}
                         >
                             <img src={vehicleTypeLabels[type].icon} alt={vehicleTypeLabels[type].label} width="32px"/>
                             {vehicleTypeLabels[type].label}

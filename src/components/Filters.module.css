@@ -1,6 +1,5 @@
 .filters {
     width: 360px;
-    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -18,14 +17,14 @@
     color: #101828;
 }
 
-.input {
-    padding: 14px 16px;
-    border: 1px solid #dadde1;
-    border-radius: 10px;
-    font-size: 16px;
-    background-color: #f7f7f7;
-    color: #101828;
-}
+/*.input {*/
+/*    padding: 14px 16px;*/
+/*    border: 1px solid #dadde1;*/
+/*    border-radius: 10px;*/
+/*    font-size: 16px;*/
+/*    background-color: #f7f7f7;*/
+/*    color: #101828;*/
+/*}*/
 
 .categories {
     display: flex;
@@ -58,10 +57,6 @@
     gap: 12px;
 }
 
-.tag:hover, .vehicleType:hover {
-    border: 1px solid #e44848;
-}
-
 .tag.selected, .vehicleType.selected {
     border: 1px solid #e44848;
     border-radius: 12px;
@@ -83,3 +78,76 @@
 .searchButton:hover {
     background-color: #db4343;
 }
+
+/*.input {*/
+/*    width: 100%;*/
+/*    padding: 12px 16px 12px 44px; !* якщо є іконка *!*/
+/*    background-color: #f7f7f7;*/
+/*    border: none;*/
+/*    border-radius: 12px;*/
+/*    color: #101828;*/
+/*    font-size: 16px;*/
+/*    position: relative;*/
+/*}*/
+
+/*.input::placeholder {*/
+/*    color: #8e8e93;*/
+/*}*/
+
+/*.input:focus {*/
+/*    outline: 1px solid #e44848;*/
+/*}*/
+
+/*.inputWrapper {*/
+/*    position: relative;*/
+/*}*/
+
+/*.icon {*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 16px;*/
+/*    transform: translateY(-50%);*/
+/*    width: 18px;*/
+/*    height: 18px;*/
+/*    z-index: 1;*/
+/*}*/
+
+.inputWrapper {
+    position: relative;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    background-color: #f7f7f7;
+    border: none;
+    border-radius: 12px;
+    color: #101828;
+    font-size: 16px;
+}
+
+.input::placeholder {
+    color: #8e8e93;
+}
+
+.input:focus {
+    outline: 2px solid #e44848;
+}
+
+/* Іконка */
+.icon {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    filter: grayscale(1) brightness(0.6) !important; /* сіра */
+    transition: filter 0.2s ease;
+}
+
+/* Зміна кольору іконки при фокусі на input */
+.input:focus + .icon {
+    filter: none; /* чорна */
+}
+
