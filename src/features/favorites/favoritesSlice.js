@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 const getInitialFavorites = () => {
     const saved = localStorage.getItem('favorites');
@@ -23,5 +23,5 @@ const favoritesSlice = createSlice({
     },
 });
 
-export const { toggleFavorite } = favoritesSlice.actions;
+export const {toggleFavorite} = favoritesSlice.actions;
 export default favoritesSlice.reducer;

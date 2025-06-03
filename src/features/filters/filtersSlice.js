@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
     location: '',
@@ -30,5 +30,5 @@ const filtersSlice = createSlice({
     },
 });
 
-export const { setLocation, setVehicleType, toggleOption, resetFilters } = filtersSlice.actions;
+export const {setLocation, setVehicleType, toggleOption, resetFilters} = filtersSlice.actions;
 export default filtersSlice.reducer;

@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchCampers } from '../features/campers/campersSlice';
+import {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchCampers} from '../features/campers/campersSlice';
 import CamperCard from '../components/CamperCard';
 import Filters from "../components/Filters.jsx";
 import Loader from '../components/Loader';
@@ -9,7 +9,7 @@ import styles from './Catalog.module.css';
 
 const Catalog = () => {
     const dispatch = useDispatch();
-    const { items, status, error } = useSelector((state) => state.campers);
+    const {items, status, error} = useSelector((state) => state.campers);
     const [visibleCount, setVisibleCount] = useState(4);
 
     useEffect(() => {
@@ -32,11 +32,11 @@ const Catalog = () => {
         <main>
             <section className={styles.catalog}>
                 <div className={styles.catalogItems}>
-                    <Filters />
+                    <Filters/>
                     {Array.isArray(items) && items.length > 0 ? (
                         <ul className={styles.results}>
                             {items.slice(0, visibleCount).map((camper) => (
-                                <CamperCard key={camper.id} camper={camper} />
+                                <CamperCard key={camper.id} camper={camper}/>
                             ))}
                         </ul>
                     ) : (
@@ -46,7 +46,7 @@ const Catalog = () => {
             </section>
 
             {visibleCount < items.length && (
-                <LoadMoreButton onClick={handleLoadMore} />
+                <LoadMoreButton onClick={handleLoadMore}/>
             )}
         </main>
     );

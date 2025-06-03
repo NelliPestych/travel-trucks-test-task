@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {fetchCamperById} from '../features/campers/campersSlice';
 import styles from './CamperDetails.module.css';
 import Loader from '../components/Loader';
-import { toast, ToastContainer } from 'react-toastify';
+import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -36,7 +36,7 @@ export default function CamperDetails() {
     const error = useSelector((state) => state.campers.selectedCamperError);
 
     const [activeTab, setActiveTab] = useState('features');
-    const [formData, setFormData] = useState({ name: '', email: '', bookingDate: '', comment: '' });
+    const [formData, setFormData] = useState({name: '', email: '', bookingDate: '', comment: ''});
     const [errorMsg, setErrorMsg] = useState('');
 
     useEffect(() => {
@@ -65,7 +65,7 @@ export default function CamperDetails() {
         try {
             await axios.post('https://jsonplaceholder.typicode.com/posts', formData);
             toast.success('Camper successfully booked!');
-            setFormData({ name: '', email: '', bookingDate: '', comment: '' });
+            setFormData({name: '', email: '', bookingDate: '', comment: ''});
             setErrorMsg('');
         } catch (err) {
             toast.error('Booking failed. Please try again.');
@@ -106,7 +106,7 @@ export default function CamperDetails() {
                 <h1 className={styles.title}>{name}</h1>
                 <div className={styles.infoRow}>
                     <div className={styles.ratingBlock}>
-                        <img src={starIcon} alt="Star" width="16" height="16" />
+                        <img src={starIcon} alt="Star" width="16" height="16"/>
                         <span>{rating}</span>
                         <a className={styles.reviewsLink}>
                             ({reviews?.length || 0} Reviews)
@@ -114,7 +114,7 @@ export default function CamperDetails() {
                     </div>
 
                     <div className={styles.locationBlock}>
-                        <img src={locationIcon} alt="Location" width="16" height="16" />
+                        <img src={locationIcon} alt="Location" width="16" height="16"/>
                         <span>{location}</span>
                     </div>
                 </div>
@@ -259,7 +259,7 @@ export default function CamperDetails() {
                                             <div className={styles.reviewerName}>{rev.reviewer_name}</div>
 
                                             <div className={styles.stars}>
-                                                {Array.from({ length: 5 }, (_, index) => (
+                                                {Array.from({length: 5}, (_, index) => (
                                                     <img
                                                         key={index}
                                                         src={index < rev.reviewer_rating ? starIcon : starEmpty}

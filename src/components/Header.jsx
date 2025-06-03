@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import styles from './Header.module.css';
 import logo from '../assets/images/icon-logo.svg';
 
@@ -6,13 +6,13 @@ export default function Header() {
     return (
         <header className={styles.header}>
             <div className={styles.logo}>
-                <img src={logo} alt="TravelTrucks logo" className={styles.logo} />
+                <img src={logo} alt="TravelTrucks logo" className={styles.logo}/>
             </div>
 
             <nav className={styles.nav}>
                 <NavLink
                     to="/"
-                    className={({ isActive }) =>
+                    className={({isActive}) =>
                         isActive ? `${styles.link} ${styles.active}` : styles.link
                     }
                 >
@@ -21,7 +21,7 @@ export default function Header() {
                 <NavLink
                     to="/catalog"
                     end
-                    className={({ isActive }) =>
+                    className={({isActive}) =>
                         isActive ? `${styles.link} ${styles.active}` : styles.link
                     }
                 >

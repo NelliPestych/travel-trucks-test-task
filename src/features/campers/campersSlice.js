@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const BASE_URL = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io';
@@ -40,7 +40,7 @@ const campersSlice = createSlice({
     },
     reducers: {
         filterCampers(state, action) {
-            const { location, form, ...options } = action.payload;
+            const {location, form, ...options} = action.payload;
 
             state.items = state.allItems.filter((camper) => {
                 const matchesLocation = location
@@ -106,5 +106,5 @@ const campersSlice = createSlice({
     }
 });
 
-export const { filterCampers, clearCampers } = campersSlice.actions;
+export const {filterCampers, clearCampers} = campersSlice.actions;
 export default campersSlice.reducer;

@@ -1,7 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleFavorite } from '../features/favorites/favoritesSlice';
+import {useNavigate} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import {toggleFavorite} from '../features/favorites/favoritesSlice';
 import styles from './CamperCard.module.css';
 
 import {
@@ -23,7 +23,7 @@ import {
     iconHeartActive
 } from '../assets/images/icons';
 
-const CamperCard = ({ camper }) => {
+const CamperCard = ({camper}) => {
     const {
         id,
         name,
@@ -76,7 +76,7 @@ const CamperCard = ({ camper }) => {
     return (
         <li className={styles.card}>
             <div>
-                <img className={styles.image} src={gallery[0]?.thumb} alt={name} width={290} height={310} />
+                <img className={styles.image} src={gallery[0]?.thumb} alt={name} width={290} height={310}/>
             </div>
             <div className={styles.content}>
                 <div className={styles.titleRow}>
@@ -85,7 +85,8 @@ const CamperCard = ({ camper }) => {
 
                     <div className={styles.rightTitleBlock}>
                         <p className={styles.price}>€{price}</p>
-                        <button onClick={handleToggleFavorite} className={styles.favoriteBtn} aria-label="Add to favorites">
+                        <button onClick={handleToggleFavorite} className={styles.favoriteBtn}
+                                aria-label="Add to favorites">
                             <img
                                 src={`${isFavorite ? iconHeartActive : iconHeart}`}
                                 alt="Favorite"
@@ -95,13 +96,18 @@ const CamperCard = ({ camper }) => {
 
                 </div>
                 <div className={styles.infoRow}>
-                    <div className={styles.infoRowItem}><img src={starIcon} alt="Star" width="16" height="16" /> {rating}({reviews.length || "0"} Reviews)</div>
-                    <div className={styles.infoRowItem}><img src={locationIcon} alt="Location" width="16" height="16" /> {location}</div>
+                    <div className={styles.infoRowItem}><img src={starIcon} alt="Star" width="16"
+                                                             height="16"/> {rating}({reviews.length || "0"} Reviews)
+                    </div>
+                    <div className={styles.infoRowItem}><img src={locationIcon} alt="Location" width="16"
+                                                             height="16"/> {location}</div>
                 </div>
-                <div className={styles.description}>{description.length > 50 ? description.slice(0, 50) + '...' : description}</div>
+                <div
+                    className={styles.description}>{description.length > 50 ? description.slice(0, 50) + '...' : description}</div>
                 <ul className={styles.tags}>
                     {features.map((feature, index) => (
-                        <li className={styles.tag} key={index}><img src={iconsObj[feature]} alt={styles.tag} width="20"/>{feature}</li>
+                        <li className={styles.tag} key={index}><img src={iconsObj[feature]} alt={styles.tag}
+                                                                    width="20"/>{feature}</li>
                     ))}
                 </ul>
                 <button className={styles.button} onClick={handleShowMore}>Show more</button>

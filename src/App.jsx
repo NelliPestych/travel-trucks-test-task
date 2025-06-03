@@ -4,9 +4,9 @@ import AppRouter from './routes/AppRouter';
 function App() {
     return (
         <>
-            <Header />
+            <Header/>
             <main>
-                <AppRouter />
+                <AppRouter/>
             </main>
         </>
     );
