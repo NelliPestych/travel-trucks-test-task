@@ -4,7 +4,7 @@ import {
     setLocation,
     setVehicleType,
     toggleOption,
-} from '../features/filters/filtersSlice';
+} from '../../features/filters/filtersSlice.js';
 import styles from './Filters.module.css';
 import {
     iconAC,
@@ -22,8 +22,8 @@ import {
     iconFull,
     iconAlcove,
     locationIcon
-} from '../assets/images/icons';
-import {filterCampers, clearCampers} from '../features/campers/campersSlice';
+} from '../../assets/images/icons.js';
+import {filterCampers, clearCampers} from '../../features/campers/campersSlice.js';
 
 const optionLabels = {
     ac: {

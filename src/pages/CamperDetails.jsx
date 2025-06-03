@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchCamperById} from '../features/campers/campersSlice';
 import styles from './CamperDetails.module.css';
-import Loader from '../components/Loader';
+import Loader from '../components/Loader/Loader.jsx';
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DatePicker from 'react-datepicker';

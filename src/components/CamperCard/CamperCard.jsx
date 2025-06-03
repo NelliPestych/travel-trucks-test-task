@@ -1,7 +1,7 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {toggleFavorite} from '../features/favorites/favoritesSlice';
+import {toggleFavorite} from '../../features/favorites/favoritesSlice.js';
 import styles from './CamperCard.module.css';
 
 import {
@@ -21,7 +21,7 @@ import {
     starEmpty,
     iconHeart,
     iconHeartActive
-} from '../assets/images/icons';
+} from '../../assets/images/icons.js';
 
 const CamperCard = ({camper}) => {
     const {
