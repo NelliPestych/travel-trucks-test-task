@@ -4,7 +4,7 @@ import {
     setLocation,
     setVehicleType,
     toggleOption,
-} from '../../features/filters/filtersSlice.js';
+} from '../../redux/filtersSlice.js';
 import styles from './Filters.module.css';
 import {
     iconAC,
@@ -23,7 +23,7 @@ import {
     iconAlcove,
     locationIcon
 } from '../../assets/images/icons.js';
-import {filterCampers, clearCampers} from '../../features/campers/campersSlice.js';
+import {filterCampers, clearCampers} from '../../redux/campersSlice.js';
 
 const optionLabels = {
     ac: {

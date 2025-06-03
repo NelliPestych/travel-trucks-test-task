@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchCampers} from '../features/campers/campersSlice';
+import {fetchCampers} from '../redux/campersSlice.js';
 import CamperCard from '../components/CamperCard/CamperCard.jsx';
 import Filters from "../components/Filters/Filters.jsx";
 import Loader from '../components/Loader/Loader.jsx';
