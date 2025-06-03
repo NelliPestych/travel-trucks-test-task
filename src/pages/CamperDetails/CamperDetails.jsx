@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchCamperById} from '../redux/campersSlice.js';
+import {fetchCamperById} from '../../redux/campersSlice.js';
 import styles from './CamperDetails.module.css';
-import Loader from '../components/Loader/Loader.jsx';
+import Loader from '../../components/Loader/Loader.jsx';
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DatePicker from 'react-datepicker';
@@ -25,7 +25,7 @@ import {
     locationIcon,
     starIcon,
     starEmpty
-} from '../assets/images/icons';
+} from '../../assets/images/icons.js';
 
 export default function CamperDetails() {
     const {id} = useParams();
