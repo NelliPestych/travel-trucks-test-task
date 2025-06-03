@@ -272,7 +272,7 @@ export default function CamperDetails() {
                                         </div>
 
                                     </div>
-                                    <p className={styles.comment}>{rev.comment}</p>
+                                    <p className={styles.reviewComment}>{rev.comment}</p>
                                 </div>
                             ))}
                         </div>
@@ -324,7 +324,7 @@ export default function CamperDetails() {
                         />
                         <textarea
                             placeholder="Comment"
-                            className={styles.comment}
+                            className={styles.formComment}
                             value={formData.comment}
                             onChange={(e) =>
                                 setFormData({...formData, comment: e.target.value})
