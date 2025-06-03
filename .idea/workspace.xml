@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3bc16302-1901-400e-a789-2177046bda2d" name="Changes" comment="created vercel.json to fix redirect error to catalog page">
+      <change beforePath="$PROJECT_DIR$/vercel.json" beforeDir="false" afterPath="$PROJECT_DIR$/vercel.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2ur9mGwyOvetYWgwkrkxq3iTInI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/nellipestych/Desktop/HomeWorks/travel-trucks-test-task/public",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/assets/images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/assets/images" />
+      <recent name="$PROJECT_DIR$/src/pages/Home" />
+      <recent name="$PROJECT_DIR$/src/pages/Catalog" />
+      <recent name="$PROJECT_DIR$/src/pages/CamperDetails" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="test task">
+      <created>1742849198137</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742849198137</updated>
+    </task>
+    <task id="LOCAL-00002" summary="test task">
+      <created>1742852316341</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742852316341</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test task">
+      <created>1742852855421</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742852855421</updated>
+    </task>
+    <task id="LOCAL-00004" summary="test task">
+      <created>1742980948602</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742980948602</updated>
+    </task>
+    <task id="LOCAL-00005" summary="test task">
+      <created>1742985049331</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742985049331</updated>
+    </task>
+    <task id="LOCAL-00006" summary="test task">
+      <created>1742989428912</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742989428912</updated>
+    </task>
+    <task id="LOCAL-00007" summary="test task">
+      <created>1742990727396</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1742990727396</updated>
+    </task>
+    <task id="LOCAL-00008" summary="test task">
+      <created>1742991002985</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1742991002985</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3bc16302-1901-400e-a789-2177046bda2d" name="Changes" comment="test task" />
+      <created>1742995982658</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742995982658</updated>
+      <workItem from="1742995983675" duration="3788000" />
+      <workItem from="1745850939779" duration="20386000" />
+      <workItem from="1748873476201" duration="23594000" />
+      <workItem from="1748956202130" duration="22186000" />
+      <workItem from="1748980439643" duration="5075000" />
+    </task>
+    <task id="LOCAL-00009" summary="test task">
+      <created>1742999602029</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1742999602029</updated>
+    </task>
+    <task id="LOCAL-00010" summary="test task">
+      <created>1745857727702</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1745857727702</updated>
+    </task>
+    <task id="LOCAL-00011" summary="test task">
+      <created>1745868618822</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1745868618822</updated>
+    </task>
+    <task id="LOCAL-00012" summary="test task">
+      <created>1745921048764</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1745921048764</updated>
+    </task>
+    <task id="LOCAL-00013" summary="test task">
+      <created>1746812724392</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1746812724392</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add camper to favorites logic, camper details styles">
+      <created>1748891110669</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1748891110670</updated>
+    </task>
+    <task id="LOCAL-00015" summary="reset filters">
+      <created>1748942617003</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1748942617003</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add variables.css and fix styles">
+      <created>1748971944851</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1748971944851</updated>
+    </task>
+    <task id="LOCAL-00017" summary="save filters and filter campers on go back to campers">
+      <created>1748975516145</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1748975516145</updated>
+    </task>
+    <task id="LOCAL-00018" summary="code formatting">
+      <created>1748975872671</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1748975872671</updated>
+    </task>
+    <task id="LOCAL-00019" summary="code refactoring, added components directories">
+      <created>1748976284252</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1748976284252</updated>
+    </task>
+    <task id="LOCAL-00020" summary="code refactoring, moved slices to redux">
+      <created>1748976442042</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1748976442042</updated>
+    </task>
+    <task id="LOCAL-00021" summary="code refactoring, moved pages to related directories">
+      <created>1748976599952</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1748976599952</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fix camper details styles">
+      <created>1748978226092</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1748978226092</updated>
+    </task>
+    <task id="LOCAL-00023" summary="created Readme.md file, deleted redundant directory">
+      <created>1748978845228</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1748978845228</updated>
+    </task>
+    <task id="LOCAL-00024" summary="created Readme.md file, deleted redundant directory">
+      <created>1748980353132</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1748980353132</updated>
+    </task>
+    <task id="LOCAL-00025" summary="minimize background image on Home page">
+      <created>1748981109032</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1748981109033</updated>
+    </task>
+    <task id="LOCAL-00026" summary="created vercel.json to fix redirect error to catalog page">
+      <created>1748982719713</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1748982719713</updated>
+    </task>
+    <task id="LOCAL-00027" summary="created vercel.json to fix redirect error to catalog page">
+      <created>1748984198489</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1748984198489</updated>
+    </task>
+    <task id="LOCAL-00028" summary="created vercel.json to fix redirect error to catalog page">
+      <created>1748984488316</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1748984488316</updated>
+    </task>
+    <task id="LOCAL-00029" summary="created vercel.json to fix redirect error to catalog page">
+      <created>1748984896434</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1748984896434</updated>
+    </task>
+    <task id="LOCAL-00030" summary="created vercel.json to fix redirect error to catalog page">
+      <created>1748985888713</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1748985888713</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test task" />
+    <MESSAGE value="add camper to favorites logic, camper details styles" />
+    <MESSAGE value="reset filters" />
+    <MESSAGE value="add variables.css and fix styles" />
+    <MESSAGE value="save filters and filter campers on go back to campers" />
+    <MESSAGE value="code formatting" />
+    <MESSAGE value="code refactoring, added components directories" />
+    <MESSAGE value="code refactoring, moved slices to redux" />
+    <MESSAGE value="code refactoring, moved pages to related directories" />
+    <MESSAGE value="fix camper details styles" />
+    <MESSAGE value="created Readme.md file, deleted redundant directory" />
+    <MESSAGE value="minimize background image on Home page" />
+    <MESSAGE value="created vercel.json to fix redirect error to catalog page" />
+    <option name="LAST_COMMIT_MESSAGE" value="created vercel.json to fix redirect error to catalog page" />
+  </component>
+</project>
