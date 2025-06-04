@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bc16302-1901-400e-a789-2177046bda2d" name="Changes" comment="created vercel.json to fix redirect error to catalog page">
-      <change beforePath="$PROJECT_DIR$/vercel.json" beforeDir="false" afterPath="$PROJECT_DIR$/vercel.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.js" afterDir="false" />
-    </list>
+    <list default="true" id="3bc16302-1901-400e-a789-2177046bda2d" name="Changes" comment="created vercel.json to fix redirect error to catalog page" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +123,7 @@
       <workItem from="1745850939779" duration="20386000" />
       <workItem from="1748873476201" duration="23594000" />
       <workItem from="1748956202130" duration="22186000" />
-      <workItem from="1748980439643" duration="5075000" />
+      <workItem from="1748980439643" duration="5748000" />
     </task>
     <task id="LOCAL-00009" summary="test task">
       <created>1742999602029</created>
